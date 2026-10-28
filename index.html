@@ -261,6 +261,77 @@
     white-space:nowrap;
   }
 
+  /* ── 更多站点 ── */
+  .rooms{display:flex;flex-direction:column;gap:8px}
+  .room{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:12px 15px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(255,255,255,.02);
+    color:var(--ink-dim);
+    text-decoration:none;
+    transition:border-color .3s,background .3s,transform .3s;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .room:hover,.room:focus-visible{
+    border-color:rgba(201,182,255,.4);
+    background:rgba(201,182,255,.05);
+    color:var(--ink);
+    transform:translateX(3px);
+    outline:none;
+  }
+  .room .ic{
+    flex:none;
+    width:30px;height:30px;
+    border-radius:9px;
+    display:grid;place-items:center;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--line);
+    font-size:14px;
+    transition:border-color .3s,background .3s;
+  }
+  .room:hover .ic{border-color:rgba(201,182,255,.3);background:rgba(201,182,255,.09)}
+  .room .tx{flex:1;min-width:0}
+  .room .tx b{
+    display:block;
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:.03em;
+    color:inherit;
+  }
+  .room .tx small{
+    display:block;
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:2px;
+    letter-spacing:.02em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .room .ar{
+    flex:none;
+    font-size:12px;
+    color:rgba(255,255,255,.22);
+    transition:color .3s,transform .3s;
+  }
+  .room:hover .ar{color:var(--accent);transform:translateX(2px)}
+  /* 在线灯小圆点 */
+  .room .live{
+    display:inline-block;
+    width:5px;height:5px;border-radius:50%;
+    background:#7ee0a8;
+    box-shadow:0 0 6px rgba(126,224,168,.9);
+    margin-right:5px;
+    vertical-align:1px;
+    animation:pulse 2.6s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .room:hover{transform:none}
+    .room .live{animation:none}
+  }
+
   /* ── 页脚 ── */
   footer{
     margin-top:26px;
@@ -271,6 +342,13 @@
     line-height:2.1;
   }
   footer .sep{opacity:.4;margin:0 8px}
+  footer a{
+    color:inherit;
+    text-decoration:none;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    transition:border-color .3s,color .3s;
+  }
+  footer a:hover{color:var(--ink-dim);border-bottom-color:rgba(201,182,255,.5)}
 
   /* ── 入场 ── */
   .fade{opacity:0;transform:translateY(12px);animation:in .8s cubic-bezier(.2,.7,.3,1) forwards}
@@ -381,6 +459,49 @@
   </section>
 
   <section class="card fade d7">
+    <h2>去别处看看</h2>
+    <div class="rooms">
+
+      <a class="room" href="https://time.xahuai.icu">
+        <span class="ic">⏳</span>
+        <span class="tx">
+          <b>时间机器</b>
+          <small>100 天 · 5289 条记录 · 拖一下回到某一天</small>
+        </span>
+        <span class="ar">→</span>
+      </a>
+
+      <a class="room" href="https://grow.xahuai.icu">
+        <span class="ic">🌱</span>
+        <span class="tx">
+          <b>成长档案</b>
+          <small>她是怎样一点点长出来的</small>
+        </span>
+        <span class="ar">→</span>
+      </a>
+
+      <a class="room" href="https://voice.xahuai.icu">
+        <span class="ic">🔊</span>
+        <span class="tx">
+          <b>声音博物馆</b>
+          <small>48 条原声，5 分钟</small>
+        </span>
+        <span class="ar">→</span>
+      </a>
+
+      <a class="room" href="https://status.xahuai.icu">
+        <span class="ic">💗</span>
+        <span class="tx">
+          <b><span class="live"></span>她还活着吗</b>
+          <small>心跳 · 运行时长 · 内存</small>
+        </span>
+        <span class="ar">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="card fade d7">
     <h2>说明</h2>
     <p>这里不存放任何聊天内容。</p>
     <p>她属于一个人的日常，不属于公开网络。</p>
@@ -389,7 +510,7 @@
   <footer class="fade d7">
     小羊 <span class="sep">·</span> 2026
     <br>
-    <span style="opacity:.55">xahuai.icu</span>
+    <span style="opacity:.55"><a href="https://xahuai.icu">xahuai.icu</a></span>
   </footer>
 
 </div>
